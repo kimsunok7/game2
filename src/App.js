@@ -1,25 +1,20 @@
 import { useState } from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import "./App.css";
 import Box from "./component/Box";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-
 
 const choice = {
   rock: {
     name: "Rock",
-    img: "https://nationaltoday.com/wp-content/uploads/2021/08/National-Pet-Rock-Day-1200x834.jpg",
+    img: "img/rock.jpg",
   },
   scissors: {
     name: "Scissors",
-    img: "https://cdn.imweb.me/thumbnail/20200514/7fc8b1411fa8d.png",
+    img: "img/si.jpg",
   },
   paper: {
     name: "Paper",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScKxqdZ91Xk3TVm7HotyQQYlZU9j1xCHDyFg&usqp=CAU",
+    img: "img/bo.jpg",
   },
 };
 
@@ -41,18 +36,13 @@ function App() {
     console.log("user", user, "computer", computer);
     if (user.name == computer.name) {
       return "tie";
-    } else if (user.name == "Rock"){
+    } else if (user.name == "Rock") {
       return computer.name == "Scissors" ? "win" : "lose";
-    }
-     
-    else if (user.name == "Paper"){
+    } else if (user.name == "Paper") {
       return computer.name == "Rock" ? "win" : "lose";
-    }
-     
-    else if (user.name == "Scissors"){
+    } else if (user.name == "Scissors") {
       return computer.name == "Paper" ? "win" : "lose";
     }
-      
   };
 
   const randomChoice = () => {
@@ -66,32 +56,27 @@ function App() {
   };
   return (
     <div className="wrap">
-      
-     
-       
-        <h3>가위바위보 게임</h3>
+      <h3>가위바위보 게임</h3>
       <div className="main">
-       
         <Box title="You" item={userSelect} result={result} />
-        <Box title="Computer" item={computerSelect} result={result} /> 
-        </div>
-        <Container> 
-          <Row>
-        <Col>
-        <Button variant="primary"  onClick={() => play("scissors")}>가위</Button>
-      <Button variant="primary"  onClick={() => play("rock")}>바위</Button>
-      <Button variant="primary"  onClick={() => play("paper")}>보</Button>
+        <Box title="Computer" item={computerSelect} result={result} />
+      </div>
 
-        </Col>
-      </Row>
-      </Container>
-      
-
-       
-      
-     
-     
-     
+      <img
+        className="w50"
+        src={process.env.PUBLIC_URL + "img/si.jpg"}
+        onClick={() => play("scissors")}
+      ></img>
+      <img
+        className="w50"
+        src={process.env.PUBLIC_URL + "img/rock.jpg"}
+        onClick={() => play("rock")}
+      ></img>
+      <img
+        className="w50"
+        src={process.env.PUBLIC_URL + "img/bo.jpg"}
+        onClick={() => play("paper")}
+      ></img>
     </div>
   );
 }
