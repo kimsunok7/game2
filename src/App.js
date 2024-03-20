@@ -16,11 +16,15 @@ const choice = {
     name: "Paper",
     img: "img/bo.jpg",
   },
+  default:{
+    name : "aa",
+    img : "https://t1.daumcdn.net/cfile/tistory/9952FF4F5E0EED152C"
+  }
 };
 
 function App() {
-  const [userSelect, setUserSelect] = useState("null");
-  const [computerSelect, setcomputerSelect] = useState("null");
+  const [userSelect, setUserSelect] = useState(choice.default);
+  const [computerSelect, setcomputerSelect] = useState(choice.default);
   const [result, setResult] = useState("");
 
   const play = (userChoice) => {
